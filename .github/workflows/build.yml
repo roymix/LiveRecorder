@@ -24,7 +24,7 @@ jobs:
         id: runcmd
         with:
           arch: armv7
-          distro: ubuntu22.04
+          distro: ubuntu_latest
           
       - name: Set up Python
         uses: actions/setup-python@v4
