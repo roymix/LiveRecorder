@@ -11,12 +11,13 @@ on:
       - 'v*'
 
 jobs:
-  armv7_job:
   build:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
+        include:
+          - arch: armv7
+            distro: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,8 +25,8 @@ jobs:
         name: Run commands
         id: runcmd
         with:
-          arch: armv7
-          distro: ubuntu_latest
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
           
       - name: Set up Python
         uses: actions/setup-python@v4
