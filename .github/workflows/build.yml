@@ -11,6 +11,7 @@ on:
       - 'v*'
 
 jobs:
+  armv7_job:
   build:
     strategy:
       matrix:
